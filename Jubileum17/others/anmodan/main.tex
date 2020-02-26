@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfornament}
+
+\newcommand\mycoupon{%
+    \begin{tikzpicture}[color=Black,
+                        every node/.style={inner sep=0pt}]
+     %\draw[help lines] (-6,-3) grid (6,3);
+     \node[minimum width=12cm, minimum height=6cm](vecbox){};
+     \draw[thin, gray!20]
+          (vecbox.north west)
+       -- (vecbox.north east)
+       -- (vecbox.south east)
+       -- (vecbox.south west)
+       -- cycle;
+     \node[anchor=north west] at (vecbox.north west)
+          {\pgfornament[width=3cm]{61}};
+     \node[anchor=north east] at (vecbox.north east)
+          {\pgfornament[width=3cm,symmetry=v]{61}};
+     \node[anchor=south west] at (vecbox.south west)
+          {\pgfornament[width=3cm,symmetry=h]{61}};
+     \node[anchor=south east] at (vecbox.south east)
+          {\pgfornament[width=3cm,symmetry=c]{61}};
+        \node at (0,0)
+        {
+            \large
+            \begin{tabular}{c}
+            \textbf{Brunch på Grand}\\
+            \\
+            \normalsize
+            Stort grattis på 22-års dagen Alexander\\
+            
+            \end{tabular}
+        };
+        \node at (0,-1.7)
+        {
+            \footnotesize
+            \begin{tabular}{c}
+            Detta presentkort har ett värde av 500kr.
+            \end{tabular}
+        };
+    \end{tikzpicture}
+}
+
+\begin{document}
+% Jonathan Benitez
+% Saga Åslund
+% Henrik Ramström
+% Sonja Kenari
+% Davida Åström
+% Jakob Pettersson
+% Theo Nyman
+% Lina Samnegård
+% Stephanie Bol
+
+% Viktor Öwall
+% Per-Henrik Rasmussen
+% Mats Cedervall
+% Maj Britt Stjärnfeldt
+% Kristina Almqvist
+% Ulla Andersson
+
+% Morgan Bryer
+% Ann Köling
+% Madeleine Nyman
+% Olivia Mattsson
+% Love Sjelvgren
+% Alfred Langerbeck
+% Silke Kylberg
+% Elina Yrlid
+
+\pagestyle{empty}
+\noindent
+\mycoupon
+
+
+
+\end{document}

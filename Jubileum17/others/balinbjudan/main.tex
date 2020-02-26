@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+    
+\def\date{2019}
+\def\doctitle{Inbjudan till Vårbal}
+\def\docauthor{Axel Voss}
+
+\usepackage[dvipsnames]{xcolor} 
+\definecolor{gold}{HTML}{DAA520}
+
+\usepackage{pgfornament}    
+
+\usepackage{geometry}
+    \geometry{
+        a5paper,
+        top=5mm,
+        left=0mm,
+        right=5mm,
+        bottom=5mm
+    }
+\newcommand{\w}{136 mm}
+\newcommand{\h}{198 mm}
+\newcommand{\oline}{69}%68
+\newcommand{\ocorner}{61}
+
+\begin{document}
+
+\begin{tikzpicture}[color=gold,
+transform shape,
+every node/.style={inner sep=0pt}]
+\node[minimum width=\w,minimum height = \h ](vecbox){};
+     \draw[thin, gold!0]
+          (vecbox.north west)
+       -- (vecbox.north east)
+       -- (vecbox.south east)
+       -- (vecbox.south west)
+       -- cycle;
+ 
+
+
+\node[anchor=north west] at (vecbox.north west){%
+\pgfornament[width=0.2*\w]{\ocorner}};
+\node[anchor=north east] at (vecbox.north east){%
+\pgfornament[width=0.2*\w,symmetry=v]{\ocorner}};
+\node[anchor=south west] at (vecbox.south west){%
+\pgfornament[width=0.2*\w,symmetry=h]{\ocorner}};
+\node[anchor=south east] at (vecbox.south east){%
+\pgfornament[width=0.2*\w,symmetry=c]{\ocorner}};
+
+
+%\node[anchor=north] at (vecbox.north){%
+%\pgfornament[width=\w/3,symmetry=h]{\oline}};
+%\node[anchor=south] at (vecbox.south){%
+%\pgfornament[width=(\w/3)]{\oline}};
+
+\node[anchor=north,rotate=90] at (vecbox.west){%
+\pgfornament[width=(\h/2-2*0.2*\w),symmetry=h]{\oline}};
+\node[anchor=north,rotate=-90] at (vecbox.east){%
+\pgfornament[width=(\h/2-2*0.2*\w),symmetry=h]{\oline}};
+
+\node[inner sep=6pt] (text) at (0,6){
+\begin{tabular}{c}
+    \Huge Vårbalen 2019
+\end{tabular}
+};
+\node[anchor=north] at (text.south){%
+\pgfornament[width=0.5*\w]{75}};
+\node[anchor=south] at (text.north){%
+\pgfornament[width=0.5*\w,symmetry=h]{75}};
+
+
+\node[inner sep=6pt] (time) at (0,0){
+\begin{tabular}{c c}
+     \textbf{Tid}& \textbf{Aktivitet}\\
+    16.00	&Fördrink i E-huset\\
+    17.00	&Bussar avgår\\
+    17:XX	&Mingel\\
+    18.30	&Middagen inleds\\
+    22.00	&Middagen avslutas\\
+    22.XX	&Tillbaka i Lund\\
+    23.30	&Eftersläpp\\
+\end{tabular}
+};
+
+\node[inner sep=6pt] (foot) at (0,-2){
+\begin{tabular}{c}
+     \footnotesize (Med reservation för mindre tidsändringar)
+\end{tabular}
+};
+
+
+\node[inner sep=6pt] (qr) at (0,-4.5){
+\begin{tabular}{c|cc}
+     \textbf{Priser}& Bal &Alkohol\\
+     \hline
+    Medlem&800kr &80kr\\
+    Ej Medlem&850kr  &80kr
+\end{tabular}
+};
+
+\node[inner sep=6pt] (qr) at (0,-7){
+\begin{tabular}{cc}
+    Bal&Alkohol\\
+    \includegraphics[scale=0.05]{axelswish.jpg}&\includegraphics[scale=0.05]{sophiaswish.jpg}\\
+    (0706285131) & (0768454178)\\
+    Axel & Sophia
+\end{tabular}
+};
+
+
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,99 @@
+% ---------------- %%% A4 konvertering %%% ----------------- %
+% ---------------- %%%    AVANCERAT    %%% ----------------- %
+\documentclass[12pt]{article}
+\usepackage[portrait,a4paper,margin=0cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+\usepackage{pdfpages}
+\usepackage{filecontents}
+\begin{filecontents*}{config.tex}
+% ---------------------------------------------------------- %
+
+
+% ---------------- %%% FORMATERING %%% ----------------- %
+
+\documentclass[12pt]{article}
+%% Import %%
+\input{pre.tex}
+%% --- %%
+
+
+% -------------- %%% EGNA INSTÄLLNINGAR %%% -------------- %
+
+%% Storlek på logga %%
+\newcommand{\logga}
+{0.8\textwidth}
+%% --- %%
+
+%% Titel %%
+\newcommand{\titel}
+{E-sektionens Vårbal}
+%% --- %%
+
+%% Värdar/Toastmasters %%
+\newcommand{\host}
+{Adam Belfrage, Emil Bergström}
+%% --- %%
+
+%% Meny %%
+\newcommand{\forratt}
+{\\Soppa på blomkål från Bunkeflostrand med krämigt sprättägg från Stehag, krispig mandelpotatis, salta frö och krass}
+\newcommand{\huvudratt}
+{\\Anka från Munka Ljungby \\med rotselleri, syrliga betor, hyvlat äpple och våra övervintrade kryddiga örter}
+\newcommand{\efterratt}
+{\\Choklad från Valhrona, sorbet på skogens bär samt krossade drömmar och harsyra}
+%% --- %%
+
+%% Datum %%
+\newcommand{\datum}
+{den 30 mars 2019}
+%% --- %%
+
+%% Melodirad %%
+% Exkludera melodirad (avkommentera om du vill att melodiraden ska gömmas)
+%\renewcommand{\mel}[1]{} % Ingen melodirad
+%% --- %%
+
+%% Repristecken %%
+% Avkommentera båda om du vill byta ut repristecknet mot textekvivalent
+%\renewcommand{\repopen}{//:}
+%\renewcommand{\repclose}{://}
+%% --- %%
+
+% ------------------- %%% DOKUMENT %%% ------------------- %
+
+\begin{document}
+\titelnoname
+\inputsong{maltidssangen}
+\inputsong{systemeinternationale}
+\newpage
+\inputsong{detnaturligaurvalet}
+\inputsong{manskahamatlab}
+\inputsong{masen}
+\inputsong{mingodevanjoel}
+\end{document}
+
+% -------------------------------------------------------- %
+
+% ---------------- %%%     RÖR EJ      %%% ----------------- %
+\end{filecontents*}
+
+\makeatletter
+\def\app@exe{\immediate\write18} % Definiera körbara Linux-kommandon
+
+\def\compb{
+\app@exe{pdflatex config.tex}
+}
+\def\createBooklet[#1]{%
+    %\app@exe{pdflatex config.tex}% Kompilera config.tex som har skapats genom filecontents-paketet
+
+
+    \includepdf[pages={4, #1, 2 ,3},nup=2x1]{config.pdf}
+}
+\makeatother
+
+\begin{document}
+\compb{}
+\createBooklet[1]
+\end{document}
